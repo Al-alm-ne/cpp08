@@ -8,7 +8,7 @@ int	main()
 	intArray.push_back(10);
 	intArray.push_back(14);
 	intArray.push_back(87);
-	intArray.push_back(7);
+	intArray.push_back(14);
 	intArray.push_back(86789);
 	intArray.push_back(54);
 	intArray.push_back(512);
@@ -25,9 +25,9 @@ int	main()
 
 	try
 	{
-		easyfind(intArray, 7);
 		easyfind(intArray, 14);
 		easyfind(intArray, 86789);
+		easyfind(intArray, 10);
 		easyfind(intArray, 512);
 	}
 	catch (const std::exception &e) 

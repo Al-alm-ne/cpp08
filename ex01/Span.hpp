@@ -19,6 +19,8 @@ public:
 	std::vector<int>	_intSpan;
 
 	Span(const unsigned int N);
+	Span(const Span& original);
+	Span &operator=(const Span& original);
 	~Span();
 
 	void			addNumber(int	num);

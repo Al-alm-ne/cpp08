@@ -22,7 +22,7 @@ void	easyfind(const T& arg, int n)//passo a referência(original), não preciso 
 	typename T::const_iterator itr;//preciso usar também const_ no iterator.
 	itr = std::find(arg.begin(), arg.end(), n);//Em C++, quando std::find não encontra, ele retorna exatamente end(). begin() e end() são referencias a um endereço, assim como itr.
 	if (itr != arg.end())
-		std::cout	<< BYEL"Element (" << n << ") found in index: "
+		std::cout	<< BYEL"First occurrence of element (" << n << ") is on index: "
 					<< std::distance(arg.begin(), itr) << NC << "\n";
 	else
 	{
