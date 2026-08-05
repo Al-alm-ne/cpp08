@@ -6,12 +6,15 @@
 
 Span::Span(const unsigned int N) : _N(N) {}
 
-Span::Span(const Span& original) : _N(original._N) {}
+Span::Span(const Span& original) : _N(original._N), _intSpan(original._intSpan) {}
 
 Span& Span::operator=(const Span& original)
 {
 	if (this != &original)
-		this->_N = original._N;
+	{
+		_N = original._N;
+		_intSpan = original._intSpan;
+	}
 	return *this;
 }
 
@@ -27,7 +30,7 @@ void	Span::addNumber(int num)
 	}
 	catch (const std::exception& ex)
 	{
-		std::cout << BRED "Vector is already full!\n" NC;
+		std::cout << BRED "Span is already full!\n" NC;
 	}
 }
 
@@ -77,21 +80,6 @@ unsigned int	Span::longestSpan()
 		return 0;
 	}
 	return longSpan;
-}
-
-void	Span::addMultNumbers()
-{
-	try
-	{
-		if (_N < 1)
-			throw std::exception();
-		for (size_t i = 0; i < _N; i++)
-			addNumber(std::rand() % 50000);
-	}
-	catch (const std::exception& ex)
-	{
-		std::cout << BRED"Need at least 2 numbers!\n" NC;
-	}
 }
 
 void	Span::printSpan()

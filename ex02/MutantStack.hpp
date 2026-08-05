@@ -18,14 +18,21 @@
 template <typename T>
 class	MutantStack : public std::stack<T> {
 public:
+
+	MutantStack();
+	MutantStack(MutantStack const& src);
+	MutantStack& operator=(const MutantStack& original);
+	~MutantStack();
+
 	typedef typename std::stack<T>::container_type	c_type;//alias para o tipo do container interno. Usamos typename sempre com tipos.
 	typedef typename c_type::iterator	iterator;//alias para o tipo de iterador desse container
 	typedef typename c_type::const_iterator	const_iterator;//alias para iterador constante desse container
 
-	//Esse this->c é o ponto-chave: c é o container subjacente(interno) protegido dentro de std::stack. Ou seja, você mantém a interface de stack e adiciona capacidade de iteração.
-	iterator	begin() { return this->c.begin(); }
-	iterator	end() { return this->c.end(); }
+	iterator	begin();
+	iterator	end();
 
-	const_iterator	begin() const { return this->c.begin(); }
-	const_iterator end() const { return this->c.end(); }
+	const_iterator	begin()const;
+	const_iterator end() const;
 };
+
+#include "MutantStack.tpp"
