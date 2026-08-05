@@ -6,6 +6,15 @@
 
 Span::Span(const unsigned int N) : _N(N) {}
 
+Span::Span(const Span& original) : _N(original._N) {}
+
+Span& Span::operator=(const Span& original)
+{
+	if (this != &original)
+		this->_N = original._N;
+	return *this;
+}
+
 Span::~Span() {}
 
 void	Span::addNumber(int num)
